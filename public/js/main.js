@@ -66,14 +66,12 @@ Productos.forEach(producto => {
 });
 
 /** */
-cards.addEventListener("click", e => {
+cards.addEventListener("click", (e) => {
     addCarrito(e);
 })
 
 const addCarrito = (e) =>{
-    console.log(e.target.classList.contains("btn"));
     if(e.target.classList.contains("btn")){
-        console.log(e.target.parentElement);
         setCarrito(e.target.parentElement)
     }
 }
@@ -87,19 +85,19 @@ const setCarrito = (objeto) =>{
         cantidad: 1
     }
 
-    if(carrito.hasOwnProperty(producto.id)){
-            producto.cantidad = carrito[producto.id].cantidad + 1;
-        }
+    
     guardarProductos(producto.id,JSON.stringify(producto));
     
-    recuperarProductos(producto);
-    
-    carrito = JSON.parse(recuperarProductos(producto));
-    console.log(carrito)
-    //carrito[producto.id] = {...producto};
-    
-    
+    if(localStorage.getItem(producto.id)){
 
+        if(carrito.hasOwnProperty(producto.id)){
+            producto.cantidad = carrito[producto.id].cantidad + 1;
+            guardarProductos(producto.id,JSON.stringify(producto));
+        }
+        recuperarProductos(JSON.parse(producto.id));
+        carrito[producto.id] = {...producto};
+
+    } 
     
     Swal.fire({
         position: 'top-end',
@@ -115,7 +113,8 @@ const setCarrito = (objeto) =>{
             popup: 'animate__animated animate__backOutDown'
           }
     })
-    console.log(producto);
+
+    console.log(carrito);
 }
 
 
