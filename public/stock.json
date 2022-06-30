@@ -1,0 +1,8 @@
+[
+    {"nombre":"King & Queen", "precio":1000, "imagen":"img/productos/anillos.jpg","id": "1"},
+    {"nombre":"Gold Chain", "precio":1500, "imagen":"img/productos/arito.jpg","id": "2"},
+    {"nombre":"Gold Heart", "precio":1250, "imagen":"img/productos/cadena.jpg","id": "3"},
+    {"nombre":"Tri Color", "precio":3000, "imagen":"img/productos/cartera_1.jpg","id": "4"},
+    {"nombre":"Nombres", "precio":500, "imagen":"img/productos/pulseras.jpg","id": "5"},
+    {"nombre":"Angel & Demon", "precio":1000, "imagen":"img/productos/anillos_2.jpg","id": "6"}
+]
