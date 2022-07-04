@@ -2,45 +2,20 @@
 let boton;
 let productoGuardado;
 let productoRecuperado;
+let vaciarCarrito
 
-/** Declaracion de clases */
-// class Producto{
-//     constructor(nombre, precio, imagen, id){
-//         this.nombre = nombre;
-//         this.precio = precio;
-//         this.imagen = imagen;
-//         this.id = id;
-//     }
-
-//     agregarCards = () => {
-        
-//         return `<img src="${this.imagen}" alt="${this.imagen}" class="rounded-2xl mx-auto w-3/4 "> 
-//                 <figcaption class="text-center bg-fuchsia-300 rounded-2xl w-80 mx-auto">${this.nombre}</figcaption> 
-//                 `
-                
-//     }
-// }
-
-/** Declaracion de Arrays */
-// let Productos = [new Producto("King & Queen",1000,"img/productos/anillos.jpg", "1"),
-//                    new Producto("Gold Chain", 1500, "img/productos/arito.jpg", "2"),
-//                    new Producto("Gold Heart", 1250,"img/productos/cadena.jpg", "3"),
-//                    new Producto("Tri Color",3000,"img/productos/cartera_1.jpg", "4"),
-//                    new Producto("Nombres", 500,"img/productos/pulseras.jpg", "5"),
-//                    new Producto("Angel & Demon", 1000,"img/productos/anillos_2.jpg", "6")
-// ];
-
+/**Declaracion de arrays */
 let carrito = [];
 
 /** Guardo los productos en el sesion storage */
 const guardarProductos = (key, valor) => { localStorage.setItem(key, valor); }
 
 
-
 /** Tomo los elementos del HTML */
 cards = document.getElementById("productos");
 productosCarrito = document.getElementById("carrito");
-precioTotal = document.getElementById("total")
+precioTotal = document.getElementById("total");
+vaciarCarrito = document.getElementById("vaciar");
 
 
 /**tomo el .json local */
@@ -89,14 +64,7 @@ const crearProductosHTML = data => {
     });
 }
 
-/**elimino los productos del html y del localstorage */
-const eliminarProducto = (id) => {
-    const item = carrito.find((prod) => prod.id === id);
-    const indice = carrito.indexOf(item);
-    carrito.splice(indice, 1);
-    crearProductosCarrito()
-    //localStorage.removeItem(id);
-}
+
 
 
 /** tomo el evento del boton carrito */
@@ -129,7 +97,7 @@ const setCarrito = (objeto) =>{
             carrito[i].cantidad ++;
             crearProductosCarrito()
             Swal.fire({
-                position: 'top-end',
+                position: 'center-end',
                 icon: 'success',
                 title: 'se agrego el producto al carrito',
                 showConfirmButton: false,
@@ -146,13 +114,14 @@ const setCarrito = (objeto) =>{
             return null;
         } 
     }
+    
     /**agrego el producto al array  */   
     carrito.push(producto);
     
     
     /**Alerta para cuando agrego el producto en el carrito */
     Swal.fire({
-        position: 'top-end',
+        position: 'center-end',
         icon: 'success',
         title: 'se agrego el producto al carrito',
         showConfirmButton: false,
@@ -193,14 +162,28 @@ const crearProductosCarrito = () =>{
 
 /**Espero a que cargue todo el DOM para mostrar los productos en el carrito */
 document.addEventListener("DOMContentLoaded", () => {
-    /**pregunto si existen los productos del carrito en el local storage y que los muestre en el HTML */
+    /**pregunto si hay productos del carrito en el local storage y que los muestre en el HTML */
     if (localStorage.getItem("carrito")) {
         carrito = JSON.parse(localStorage.getItem("carrito"))
         crearProductosCarrito()
     }
 })
 
+/** Vacio el carrito y elimino todo del local storage */
+vaciarCarrito.addEventListener("click", () => {
+    carrito = [];
+    localStorage.clear();
+    crearProductosCarrito();
+})
 
 
+/**elimino los productos del html y del localstorage */
+const eliminarProducto = (id) => {
+    const item = carrito.find((prod) => prod.id == id);
+    const indice = carrito.indexOf(item);
+    carrito.splice(indice, 1);
+    localStorage.removeItem("carrito");
+    crearProductosCarrito()
+}
 
 
