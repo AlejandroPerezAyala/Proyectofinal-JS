@@ -16,6 +16,8 @@ cards = document.getElementById("productos");
 productosCarrito = document.getElementById("carrito");
 precioTotal = document.getElementById("total");
 vaciarCarrito = document.getElementById("vaciar");
+cantCarrito = document.getElementById("cant");
+
 
 
 /**tomo el .json local */
@@ -97,7 +99,7 @@ const setCarrito = (objeto) =>{
             carrito[i].cantidad ++;
             crearProductosCarrito()
             Swal.fire({
-                position: 'center-end',
+                position: 'top-end',
                 icon: 'success',
                 title: 'se agrego el producto al carrito',
                 showConfirmButton: false,
@@ -121,7 +123,7 @@ const setCarrito = (objeto) =>{
     
     /**Alerta para cuando agrego el producto en el carrito */
     Swal.fire({
-        position: 'center-end',
+        position: 'top-end',
         icon: 'success',
         title: 'se agrego el producto al carrito',
         showConfirmButton: false,
@@ -158,6 +160,8 @@ const crearProductosCarrito = () =>{
     /**operacion para sumar los precios multiplicados por la cantidad de produtos y lo muestro en el carrito  */
     precioTotal.innerText = carrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
 
+    cantCarrito.querySelector("p").textContent = carrito.length;
+
 }
 
 /**Espero a que cargue todo el DOM para mostrar los productos en el carrito */
@@ -185,5 +189,6 @@ const eliminarProducto = (id) => {
     localStorage.removeItem("carrito");
     crearProductosCarrito()
 }
+
 
 

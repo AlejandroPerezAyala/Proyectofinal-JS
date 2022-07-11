@@ -4,5 +4,11 @@
     {"nombre":"Gold Heart", "precio":1250, "imagen":"img/productos/cadena.jpg","id": "3"},
     {"nombre":"Tri Color", "precio":3000, "imagen":"img/productos/cartera_1.jpg","id": "4"},
     {"nombre":"Nombres", "precio":500, "imagen":"img/productos/pulseras.jpg","id": "5"},
-    {"nombre":"Angel & Demon", "precio":1000, "imagen":"img/productos/anillos_2.jpg","id": "6"}
+    {"nombre":"Angel & Demon", "precio":1000, "imagen":"img/productos/anillos_2.jpg","id": "6"},
+    {"nombre":"Jades", "precio":700, "imagen":"https://i.pinimg.com/564x/98/4e/aa/984eaa9d64a63ff6ef12a002626a4589.jpg","id": "7"},
+    {"nombre":"Infinito", "precio":300, "imagen":"https://i.pinimg.com/564x/2a/07/11/2a0711c2ad6faacabe3807b8163356ab.jpg","id": "8"},
+    {"nombre":"Lego Heart", "precio":800, "imagen":"https://i.pinimg.com/564x/5d/68/cb/5d68cbad739aa88e0dbfb9786b33b881.jpg","id": "9"},
+    {"nombre":"Sun & Moon", "precio":1500, "imagen":"https://i.pinimg.com/564x/ff/f4/29/fff429f241843742ae7265072c63be3c.jpg","id": "10"},
+    {"nombre":"Mochicielago", "precio":2500, "imagen":"https://i.pinimg.com/564x/6a/3d/12/6a3d1272616fb2d02a302f1a77894742.jpg","id": "11"},
+    {"nombre":"Cinturon", "precio":1500, "imagen":"https://i.pinimg.com/564x/bf/8c/60/bf8c607d269772bc4e114e839215c7d9.jpg","id": "12"}
 ]
