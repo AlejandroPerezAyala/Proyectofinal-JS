@@ -2,7 +2,16 @@
 let boton;
 let productoGuardado;
 let productoRecuperado;
-let vaciarCarrito
+let vaciarCarrito;
+let cantCarrito;
+let zona1;
+let zona2;
+let zona3;
+let zona4;
+let nombre;
+let apellido;
+let email;
+let enviar;
 
 /**Declaracion de arrays */
 let carrito = [];
@@ -17,7 +26,14 @@ productosCarrito = document.getElementById("carrito");
 precioTotal = document.getElementById("total");
 vaciarCarrito = document.getElementById("vaciar");
 cantCarrito = document.getElementById("cant");
-
+zona1 = document.getElementById("zona1");
+zona2 = document.getElementById("zona2");
+zona3 = document.getElementById("zona3");
+zona4 = document.getElementById("zona4");
+nombre = document.getElementById("nombre");
+apellido = document.getElementById("apellido");
+email = document.getElementById("email");
+enviar = document.getElementById("enviar");
 
 
 /**tomo el .json local */
@@ -65,8 +81,6 @@ const crearProductosHTML = data => {
         cards.appendChild(newElement);
     });
 }
-
-
 
 
 /** tomo el evento del boton carrito */
@@ -190,5 +204,49 @@ const eliminarProducto = (id) => {
     crearProductosCarrito()
 }
 
+/** Evento para tomar los datos colocados en el form */
+enviar.addEventListener("click", (e) => {
+    
+    e.preventDefault();
+    let zona;
 
+    if(zona1.checked){
+        zona = "Gutierrez";
+        zonasDeEncuentro(zona);
+    }else if(zona2.checked){
+        zona = "Ing. Allan";
+        zonasDeEncuentro(zona);
+    } else if(zona3.checked){
+        zona = "Berazategui";
+        zonasDeEncuentro(zona);
+    } else if(zona4.checked){
+        zona = "F. Varela";
+        zonasDeEncuentro(zona);
+    }else{
+        Swal.fire('Por favor completar todos los campos')
+    }
+} )
 
+/**funcion para el alerta con los datos tomados del Form en el html */
+const zonasDeEncuentro = (zona) =>{
+    Swal.fire({
+        title: 'DATOS A ENVIAR',
+        text: `Nombre: ${nombre.value}          
+               Apellido: ${apellido.value}       
+               Email: ${email.value}       
+               Punto de encuentro: ${zona}`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Correcto'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Enviado!',
+            'Por favor espera que te contactemos con los datos proporcionados, Gracias!',
+            'success'
+          )
+        }
+      })
+}

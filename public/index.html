@@ -121,19 +121,19 @@
             <div  class="grid grid-cols-1 sm:grid-cols-2 mb-5">
                 <form class="mx-5 flex flex-col" action="">
                     <label for="name" class="font-bold text-lg">Nombre:</label>
-                    <input type="text" placeholder="Nombre" class="text-lg rounded-3xl w-2/4">
+                    <input type="text" placeholder="Nombre" id="nombre" class="text-lg rounded-3xl w-2/4">
                     <label for="Apellido" class="font-bold text-lg">Apellido:</label>
-                    <input type="text" placeholder="Apellido" class="text-lg rounded-3xl w-2/4">
+                    <input type="text" placeholder="Apellido" id="apellido" class="text-lg rounded-3xl w-2/4">
                     <label for="Email" class="font-bold text-lg">Email:</label>
-                    <input type="email" placeholder="Email" class="text-lg rounded-3xl w-2/4">
+                    <input type="email" placeholder="Email" id="email" class="text-lg rounded-3xl w-2/4">
                     <div>
                         <label for="Zona" class="font-bold text-lg">Punto de encuentro deseado:</label> <br>
-                        <input type="radio" name="Zona" class="m-2">Gutierrez
-                        <input type="radio" name="Zona" class="m-2">Ing. Allan
-                        <input type="radio" name="Zona" class="m-2">Berazategui
-                        <input type="radio" name="Zona" class="m-2">F. Varela
+                        <input type="radio" name="Zona" id="zona1" class="m-2">Gutierrez
+                        <input type="radio" name="Zona" id="zona2" class="m-2">Ing. Allan
+                        <input type="radio" name="Zona" id="zona3" class="m-2">Berazategui
+                        <input type="radio" name="Zona" id="zona4" class="m-2">F. Varela
                     </div>
-                    <button type="submit" class="text-gray-600 bg-pink-300 hover:bg-pink-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-1/5">Enviar</button>                    
+                    <input type="submit" id="enviar" value="Enviar" class="text-gray-600 bg-pink-300 hover:bg-pink-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-1/5">                  
                 </form>
                 <img class="p-4 rounded-3xl mx-auto w-64" src="./img/Atencion.png" alt="">
             </div>
